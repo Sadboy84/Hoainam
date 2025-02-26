@@ -1,0 +1,163 @@
+import Link from "next/link"
+import { ChevronRight, MapPin, Phone, Clock, Instagram, Facebook, Twitter } from 'lucide-react'
+import { Button } from "@/components/ui/button"
+
+export default function Home() {
+  return (
+    <div className="flex flex-col min-h-screen">
+      <header className="sticky top-0 z-40 w-full border-b bg-background">
+        <div className="container flex h-16 items-center justify-between">
+          <Link href="/" className="flex items-center gap-2">
+            <span className="text-2xl font-bold text-primary">Dough King</span>
+          </Link>
+          <nav className="hidden md:flex gap-6">
+            <Link href="#menu" className="text-sm font-medium hover:text-primary transition-colors">
+              Menu
+            </Link>
+            <Link href="#about" className="text-sm font-medium hover:text-primary transition-colors">
+              About
+            </Link>
+            <Link href="#locations" className="text-sm font-medium hover:text-primary transition-colors">
+              Locations
+            </Link>
+            <Link href="#contact" className="text-sm font-medium hover:text-primary transition-colors">
+              Contact
+            </Link>
+          </nav>
+          <div className="flex items-center gap-4">
+            <Button variant="outline" className="hidden md:flex">
+              Sign In
+            </Button>
+            <Button>Order Now</Button>
+          </div>
+        </div>
+      </header>
+      <main className="flex-1">
+        <section className="py-12 md:py-24 lg:py-32 xl:py-40 bg-primary/5">
+          <div className="container px-4 md:px-6">
+            <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 xl:grid-cols-2">
+              <div className="flex flex-col justify-center space-y-4">
+                <div className="space-y-2">
+                  <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
+                    Freshly Baked Perfection
+                  </h1>
+                  <p className="max-w-[600px] text-muted-foreground md:text-xl">
+                    Handcrafted artisan bread, pizza, and pastries made with love and the finest ingredients.
+                  </p>
+                </div>
+                <div className="flex flex-col gap-2 min-[400px]:flex-row">
+                  <Button size="lg" className="px-8">
+                    Order Online
+                  </Button>
+                  <Button size="lg" variant="outline" className="px-8">
+                    View Menu <ChevronRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </div>
+              </div>
+              <div className="flex items-center justify-center">
+                <img
+                  alt="Freshly baked bread"
+                  className="aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
+                  height="550"
+                  src="/placeholder.svg?height=550&width=800"
+                  width="800"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section id="menu" className="py-12 md:py-24 lg:py-32">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <div className="space-y-2">
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Our Menu</h2>
+                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                  Discover our selection of handcrafted breads, pizzas, and pastries made fresh daily.
+                </p>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-8">
+              {menuItems.map((item) => (
+                <div key={item.name} className="group relative overflow-hidden rounded-lg border bg-background p-2">
+                  <div className="aspect-square overflow-hidden rounded-md bg-muted">
+                    <img
+                      src={item.image || "/placeholder.svg"}
+                      alt={item.name}
+                      className="object-cover w-full h-full transition-transform group-hover:scale-105"
+                      width={400}
+                      height={400}
+                    />
+                  </div>
+                  <div className="pt-3 pb-2">
+                    <h3 className="font-semibold tracking-tight">{item.name}</h3>
+                    <p className="text-sm text-muted-foreground">{item.description}</p>
+                    <div className="flex items-center justify-between pt-2">
+                      <span className="font-medium">${item.price.toFixed(2)}</span>
+                      <Button size="sm" variant="secondary">Add to Cart</Button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="flex justify-center mt-10">
+              <Button size="lg" variant="outline">
+                View Full Menu
+              </Button>
+            </div>
+          </div>
+        </section>
+        
+        <section id="about" className="py-12 md:py-24 lg:py-32 bg-muted/50">
+          <div className="container px-4 md:px-6">
+            <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
+              <div className="flex flex-col justify-center space-y-4">
+                <div className="space-y-2">
+                  <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Our Story</h2>
+                  <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                    Founded in 2010, Dough King began as a small family bakery with a passion for traditional baking methods and quality ingredients.
+                  </p>
+                </div>
+                <div className="space-y-4">
+                  <p>
+                    Our master bakers have over 30 years of combined experience, bringing authentic recipes and techniques from around the world to your neighborhood.
+                  </p>
+                  <p>
+                    We believe in using only the finest ingredients, sourced locally whenever possible, and never adding preservatives or artificial flavors to our products.
+                  </p>
+                  <p>
+                    Every loaf, pizza, and pastry is handcrafted with care, ensuring that what you taste is nothing short of exceptional.
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center justify-center">
+                <img
+                  alt="Bakers working"
+                  className="aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full"
+                  height="550"
+                  src="/placeholder.svg?height=550&width=800"
+                  width="800"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section id="locations" className="py-12 md:py-24 lg:py-32">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <div className="space-y-2">
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Our Locations</h2>
+                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                  Visit us at one of our bakeries across the city.
+                </p>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 mt-8">
+              {locations.map((location) => (
+                <div key={location.name} className="rounded-lg border bg-card text-card-foreground shadow-sm">
+                  <div className="p-6 space-y-4">
+                    <h3 className="text-xl font-bold">{location.name}</h3>
+                    <div className="space-y-2">
+                      <div className="flex items-center">
+                        <MapPin className="h-4 w-4 mr-2 
