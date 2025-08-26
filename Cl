@@ -32,8 +32,8 @@ app.listen(PORT, () => {
 PK��Zo��Rmirage-listener.jsconst fs = require('fs');
 const { Client, Intents } = require('discord.js-selfbot-v13');
 
-const TOKEN = 'MTA5MTg2Njg0NjU4MTQ5Nzk0Nw.GjjKyo.Od1aTvJdm-HBNb501AUpJPjmE9Hjwtb84Ep5hA';
-const MIRAGE_CHANNEL_ID = '1312732820912865311'; // ID kênh chứa Mirage
+const TOKEN = 'MTA5MTg2Njg0NjU4MTQ5Nzk0Nw.G9pO5D.IArKyXpxR7dUwV4idR_GvBwOQPbukTiDs9M8Tw';
+const MIRAGE_CHANNEL_ID = '1363502983144542320'; // ID kênh chứa Mirage
 
 const client = new Client({
   intents: new Intents(32767)
